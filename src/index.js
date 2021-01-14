@@ -1,4 +1,5 @@
 const express = require("express")
+var cors = require('cors');
 const app = express();
 
 //setting
@@ -6,6 +7,7 @@ app.set("port", process.env.PORT || 80)
 app.set("json spaces", 2)
 
 //middleware
+app.use(cors());
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 

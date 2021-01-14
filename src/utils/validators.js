@@ -3,12 +3,10 @@ const validate = (obj, params) => {
     for (var i = 0; i < params.length; i++) {
         var key = params[i];
         if (obj[key] == null || obj[key] == "") {
-            res = `Request not valid, '${key}' missing found.`
-            break
-        }
+            throw { code: "400", message: `Request not valid, '${key}' missing found.` }
 
+        }
     }
-    return res
 }
 
 module.exports = { validate }
